@@ -9,14 +9,17 @@ import Today from "./Today";
 
 export default function App() {
   return (
-    <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<LoginScreen />} />
-        <Route path="/cadastro" element={<CreateAccount />} />
-        <Route path="/hoje" element={<Today />} />
-        <Route path="/habitos" element={<Behavior />} />
-        <Route path="/historico" element={<History />} />
-      </Routes>
-    </BrowserRouter>
+    <>
+      <GlobalStyle />
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<LoginScreen />} />
+          <Route path="/cadastro" element={<CreateAccount />} />
+          <Route path="/hoje" element={<Today />} />
+          <Route path="/habitos" element={<Behavior />} />
+          <Route path="/historico" element={<History />} />
+        </Routes>
+      </BrowserRouter>
+    </>
   );
 }

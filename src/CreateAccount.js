@@ -1,5 +1,5 @@
 import React from "react";
 
 export default function CreateAccount() {
-  return <div>Olá mundo</div>;
+  return <div>criar conta</div>;
 }
