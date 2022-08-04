@@ -63,3 +63,5 @@ body {
     font-weight: 400;
 }
 `;
+
+export default GlobalStyle;
