@@ -1,6 +1,6 @@
 import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Behavior from "./Behavior";
+import Tasks from "./Tasks";
 import CreateAccount from "./CreateAccount";
 import History from "./History";
 import LoginScreen from "./LoginScreen";
@@ -17,7 +17,7 @@ export default function App() {
           <Route path="/" element={<LoginScreen />} />
           <Route path="/cadastro" element={<CreateAccount />} />
           <Route path="/hoje" element={<Today />} />
-          <Route path="/habitos" element={<Behavior />} />
+          <Route path="/habitos" element={<Tasks />} />
           <Route path="/historico" element={<History />} />
         </Routes>
       </BrowserRouter>

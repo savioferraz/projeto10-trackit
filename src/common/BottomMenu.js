@@ -14,6 +14,6 @@ const Bottom = styled.div`
   width: 100%;
   height: 70px;
   margin-top: 70px;
-  background: #126ba5;
+  background: #ffffff;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
 `;
