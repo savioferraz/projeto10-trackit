@@ -1,8 +1,16 @@
 import React from "react";
 import styled from "styled-components";
 
-export default function Input({ placeholder, type }) {
-  return <Wrapper placeholder={placeholder} type={type}></Wrapper>;
+export default function Input({ placeholder, type, name, value }) {
+  return (
+    <Wrapper
+      placeholder={placeholder}
+      type={type}
+      name={name}
+      value={value}
+      required
+    ></Wrapper>
+  );
 }
 
 const Wrapper = styled.input`

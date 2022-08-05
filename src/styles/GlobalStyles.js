@@ -62,6 +62,14 @@ body {
     font-family: Lexend Deca, sans-serif;
     font-weight: 400;
 }
+p {
+	color: #666666;
+	font-size:18px
+}
+h1 {
+	color: #52B6FF;
+	font-size:17px
+}
 `;
 
 export default GlobalStyle;

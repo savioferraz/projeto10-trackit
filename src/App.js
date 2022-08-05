@@ -1,11 +1,10 @@
 import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Tasks from "./Tasks";
+import Habits from "./Habits";
 import CreateAccount from "./CreateAccount";
 import History from "./History";
 import LoginScreen from "./LoginScreen";
 import GlobalStyle from "./styles/GlobalStyles";
-
 import Today from "./Today";
 
 export default function App() {
@@ -17,7 +16,7 @@ export default function App() {
           <Route path="/" element={<LoginScreen />} />
           <Route path="/cadastro" element={<CreateAccount />} />
           <Route path="/hoje" element={<Today />} />
-          <Route path="/habitos" element={<Tasks />} />
+          <Route path="/habitos" element={<Habits />} />
           <Route path="/historico" element={<History />} />
         </Routes>
       </BrowserRouter>
