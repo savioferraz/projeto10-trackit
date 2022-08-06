@@ -4,6 +4,7 @@ import Button from "./common/Button";
 import Input from "./common/Input";
 import { postLogin } from "./Services";
 import { Login } from "./styles/Body";
+import logo from "./common/images/logo.png";
 
 export default function LoginScreen() {
   const navigate = useNavigate();
@@ -25,6 +26,7 @@ export default function LoginScreen() {
 
   return (
     <Login>
+      <img src={logo} alt="logo" />
       <form onSubmit={handleForm}>
         <Input
           placeholder={"email"}

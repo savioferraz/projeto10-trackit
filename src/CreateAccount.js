@@ -4,6 +4,7 @@ import Button from "./common/Button";
 import { Login } from "./styles/Body";
 import { postCreateAcc } from "./Services";
 import Input from "./common/Input";
+import logo from "./common/images/logo.png";
 
 export default function CreateAccount() {
   const navigate = useNavigate();
@@ -21,6 +22,7 @@ export default function CreateAccount() {
 
   return (
     <Login>
+      <img src={logo} alt="logo" />
       <form onSubmit={handleForm}>
         <Input
           placeholder={"email"}

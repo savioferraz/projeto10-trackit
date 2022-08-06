@@ -3,18 +3,13 @@ import { useNavigate } from "react-router-dom";
 import BottomMenu from "./common/BottomMenu";
 import Header from "./common/Header";
 import { getHabits } from "./Services";
+import { Main } from "./styles/Body";
 
 export default function Today() {
   const navigate = useNavigate();
-  const auth = JSON.parse(localStorage.getItem("trackit"));
   const [habits, setHabits] = useState([]);
 
   useEffect(() => {
-    const config = {
-      headers: {
-        Authorization: `Bearer ${auth.token}`,
-      },
-    };
     getHabits().then((res) => {
       setHabits(res.data);
     });
@@ -26,7 +21,7 @@ export default function Today() {
   return (
     <>
       <Header />
-      hoje
+      <Main>{habits}</Main>
       <BottomMenu />
     </>
   );

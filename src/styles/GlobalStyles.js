@@ -77,6 +77,10 @@ form{
 	justify-content:center;
 	width: 100vw;
 }
+a {
+	text-decoration: none;
+	cursor: pointer;
+}
 `;
 
 export default GlobalStyle;

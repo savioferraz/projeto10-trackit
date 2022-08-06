@@ -67,6 +67,7 @@ function getHistory() {
 }
 
 export {
+  createHeaders,
   postCreateAcc,
   postLogin,
   postHabit,

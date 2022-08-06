@@ -1,13 +1,26 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 
 export default function BottomMenu() {
-  return <Bottom></Bottom>;
+  return (
+    <Bottom>
+      <Link to="/habitos">
+        <h1>Hábitos</h1>
+      </Link>
+      <Link to="/hoje">
+        <h1>Hoje</h1>
+      </Link>
+      <Link to="/historico">
+        <h1>Histórico</h1>
+      </Link>
+    </Bottom>
+  );
 }
 
 const Bottom = styled.div`
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: center;
   position: fixed;
   bottom: 0;
