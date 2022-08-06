@@ -75,7 +75,7 @@ form{
 	flex-direction: column;
 	align-items: center;
 	justify-content:center;
-	width: 100vw;
+	
 }
 a {
 	text-decoration: none;

@@ -1,8 +1,8 @@
 import React from "react";
 import styled from "styled-components";
 
-export default function Button() {
-  return <Botao></Botao>;
+export default function Button({ onClick }) {
+  return <Botao onClick={onClick}></Botao>;
 }
 
 const Botao = styled.button`

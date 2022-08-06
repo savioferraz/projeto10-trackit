@@ -3,12 +3,11 @@ import styled from "styled-components";
 import BottomMenu from "./common/BottomMenu";
 import Button from "./common/Button";
 import Header from "./common/Header";
-import Input from "./common/Input";
 import { Main } from "./styles/Body";
 import TaskBox from "./TaskBox";
 
 export default function Habits() {
-  const [enableTask, setEnableTask] = useState(false);
+  const [enableTaskBox, setEnableTaskBox] = useState(false);
 
   return (
     <>
@@ -16,9 +15,9 @@ export default function Habits() {
       <Main>
         <MyHabits>
           <p>Meus hábitos</p>
-          <Button onClick={() => (setEnableTask = true)}>+</Button>
+          <Button onClick={() => (setEnableTaskBox = true)}>+</Button>
         </MyHabits>
-        {enableTask ? <TaskBox /> : <></>}
+        {!enableTaskBox ? <TaskBox /> : <></>}
         <p>
           Você não tem nenhum hábito cadastrado ainda. Adicione um hábito para
           começar a trackear!
