@@ -1,13 +1,14 @@
 import React from "react";
 import styled from "styled-components";
 
-export default function Input({ placeholder, type, name, value }) {
+export default function Input({ placeholder, type, name, value, onChange }) {
   return (
     <Wrapper
       placeholder={placeholder}
       type={type}
       name={name}
       value={value}
+      onChange={onChange}
       required
     ></Wrapper>
   );

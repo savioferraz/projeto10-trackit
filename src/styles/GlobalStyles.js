@@ -70,6 +70,13 @@ h1 {
 	color: #52B6FF;
 	font-size:17px
 }
+form{
+	display:flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content:center;
+	width: 100vw;
+}
 `;
 
 export default GlobalStyle;

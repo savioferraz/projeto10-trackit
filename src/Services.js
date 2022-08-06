@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const url = "https://mock-api.bootcamp.respondeai.com.br/api/v2/trackit/";
+const url = "https://mock-api.bootcamp.respondeai.com.br/api/v2/trackit";
 
 function createHeaders() {
   const auth = JSON.parse(localStorage.getItem("trackit"));
@@ -9,7 +9,6 @@ function createHeaders() {
       Authorization: `Bearer ${auth.token}`,
     },
   };
-
   return config;
 }
 

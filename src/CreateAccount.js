@@ -1,52 +1,55 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Button from "./common/Button";
-import Input from "./common/Input";
 import { Login } from "./styles/Body";
 import { postCreateAcc } from "./Services";
+import Input from "./common/Input";
 
 export default function CreateAccount() {
+  const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [name, setName] = useState("");
-  const [photo, setPhoto] = useState("");
-  const data = { email, password, name, photo };
+  const [image, setImage] = useState("");
+  const data = { email, name, image, password };
 
-  function submit() {
-    postCreateAcc(data);
+  function handleForm(e) {
+    e.preventDefault();
+    console.log(data);
+    postCreateAcc(data).then(() => navigate("/"));
   }
 
   return (
     <Login>
-      <form onSubmit={submit}>
+      <form onSubmit={handleForm}>
         <Input
           placeholder={"email"}
           type={"email"}
           name={"email"}
           value={email}
           onChange={(e) => setEmail(e.target.value)}
-        ></Input>
+        />
         <Input
           placeholder={"senha"}
           type={"password"}
           name={"password"}
           value={password}
           onChange={(e) => setPassword(e.target.value)}
-        ></Input>
+        />
         <Input
           placeholder={"nome"}
           type={"text"}
           name={"name"}
           value={name}
           onChange={(e) => setName(e.target.value)}
-        ></Input>
+        />
         <Input
           placeholder={"foto"}
           type={"url"}
-          name={"photo"}
-          value={photo}
-          onChange={(e) => setPhoto(e.target.value)}
-        ></Input>
+          name={"image"}
+          value={image}
+          onChange={(e) => setImage(e.target.value)}
+        />
         <Button type="submit">Cadastrar</Button>
       </form>
       <Link to="/">Já tem uma conta? Faça login!</Link>
