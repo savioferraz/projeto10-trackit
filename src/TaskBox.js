@@ -1,20 +1,17 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import styled from "styled-components";
 import Button from "./common/Button";
 import Input from "./common/Input";
+import UserContext from "./common/UserContext";
 import { postHabit } from "./Services";
+import Week from "./Week";
 
-export default function TaskBox(props) {
+export default function TaskBox() {
   const [name, setName] = useState("");
-  const [days, setDays] = useState([]);
-  const { enableTaskBox, setEnableTaskBox } = props;
-
-  const data = { name, days };
-
-  // function enable(day) {
-  //     const [enable, setEnable] = useState(false)
-  //     {enable ? (setDays((days) => [...days, `${day}`]) : (setDays[...days.slice(`${day}`)])}
-  // }
+  const [daysArr, setdaysArr] = useState([]);
+  const { enableTaskBox, setEnableTaskBox } = useContext(UserContext);
+  const { selected, setSelected } = useContext(UserContext);
+  const data = { name, daysArr };
 
   function handleForm(e) {
     e.preventDefault();
@@ -32,18 +29,14 @@ export default function TaskBox(props) {
           value={name}
           onChange={(e) => setName(e.target.value)}
         ></Input>
-        <ul>
-          <button onClick={() => setDays((days) => [...days, `0`])}>D</button>
-          <button onClick={() => setDays((days) => [...days, `1`])}>S</button>
-          <button onClick={() => setDays((days) => [...days, `2`])}>T</button>
-          <button onClick={() => setDays((days) => [...days, `3`])}>Q</button>
-          <button onClick={() => setDays((days) => [...days, `4`])}>Q</button>
-          <button onClick={() => setDays((days) => [...days, `5`])}>S</button>
-          <button onClick={() => setDays((days) => [...days, `6`])}>S</button>
-        </ul>
+        <Week />
         <div>
-          <Cancel onClick={() => setEnableTaskBox(false)}>Cancelar</Cancel>
-          <Button type="submit"></Button>
+          <Cancel onClick={() => setEnableTaskBox(!enableTaskBox)}>
+            Cancelar
+          </Cancel>
+          <Button height="35px" width="84px" type="submit">
+            Salvar
+          </Button>
         </div>
       </form>
     </Wrapper>
@@ -58,28 +51,14 @@ const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   margin-bottom: 29px;
-  ul {
-    display: flex;
-    flex-direction: row;
-    margin: 6px 12px;
-  }
-  ul button {
-    width: 30px;
-    height: 30px;
-    background-color: #ffffff;
-    border: 1px solid #d5d5d5;
-    border-radius: 5px;
-    color: #dbdbdb;
-    font-size: 20px;
-    text-align: center;
-    margin: 2px;
-  }
   div {
     display: flex;
     align-items: center;
+    justify-content: space-between;
   }
 `;
 
 const Cancel = styled.div`
   color: #52b6ff;
+  margin: auto 23px;
 `;

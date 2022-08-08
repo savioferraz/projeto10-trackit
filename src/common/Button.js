@@ -1,19 +1,28 @@
 import React from "react";
 import styled from "styled-components";
 
-export default function Button({ onClick }) {
-  return <Botao onClick={onClick}></Botao>;
+export default function Button({
+  children,
+  width = "80%",
+  height = "45px",
+  onClick,
+}) {
+  return (
+    <Wrapper height={height} width={width} onClick={onClick}>
+      {children}
+    </Wrapper>
+  );
 }
 
-const Botao = styled.button`
+const Wrapper = styled.button`
   background-color: #52b6ff;
-  width: 80%;
-  height: 45px;
+  width: ${(props) => props.width};
+  height: ${(props) => props.height};
   border-radius: 5px;
   font-size: 21px;
   line-height: 26px;
   border: none;
   text-align: center;
-  text-decoration: #ffffff;
+  color: #ffffff;
   margin: 3px auto;
 `;

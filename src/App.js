@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Habits from "./Habits";
 import CreateAccount from "./CreateAccount";
@@ -9,8 +9,13 @@ import Today from "./Today";
 import UserContext from "./common/UserContext";
 
 export default function App() {
+  const [enableTaskBox, setEnableTaskBox] = useState(false);
+  const [selected, setSelected] = useState(false);
+
   return (
-    <UserContext.Provider>
+    <UserContext.Provider
+      value={{ enableTaskBox, setEnableTaskBox, selected, setSelected }}
+    >
       <GlobalStyle />
       <BrowserRouter>
         <Routes>

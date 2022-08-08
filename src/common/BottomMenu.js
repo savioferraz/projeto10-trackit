@@ -1,15 +1,33 @@
-import React from "react";
+import React, { useContext } from "react";
+import { buildStyles, CircularProgressbar } from "react-circular-progressbar";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
+import UserContext from "./UserContext";
 
 export default function BottomMenu() {
+  const { percentage } = useContext(UserContext);
+
   return (
     <Bottom>
       <Link to="/habitos">
         <h1>Hábitos</h1>
       </Link>
       <Link to="/hoje">
-        <h1>Hoje</h1>
+        <CircularProgressbar
+          value={percentage}
+          text="Hoje"
+          background
+          backgroundPadding={3}
+          styles={buildStyles({
+            rotation: 0.25,
+            strokeLinecap: "butt",
+            textSize: "18px",
+            pathTransitionDuration: 0.5,
+            pathColor: "#ffffff",
+            textColor: "#ffffff",
+            backgroundColor: "#52B6FF",
+          })}
+        />
       </Link>
 
       <Link to="/historico">

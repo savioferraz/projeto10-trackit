@@ -1,23 +1,33 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import styled from "styled-components";
 import BottomMenu from "./common/BottomMenu";
 import Button from "./common/Button";
 import Header from "./common/Header";
-import { getHabits } from "./Services";
+import UserContext from "./common/UserContext";
+import { deleteHabit, getHabits } from "./Services";
 import { Main } from "./styles/Body";
 import Task from "./Task";
 import TaskBox from "./TaskBox";
 
 export default function Habits() {
-  const [enableTaskBox, setEnableTaskBox] = useState(false);
+  const { enableTaskBox, setEnableTaskBox } = useContext(UserContext);
   const [habits, setHabits] = useState([]);
+  const [refresh, setRefres] = useState(false);
 
   useEffect(() => {
     getHabits().then((res) => {
-      // console.log(res.data);
       setHabits(res.data);
     });
-  }, []);
+  }, [refresh]);
+
+  function deleteHab(habitId) {
+    const confirm = window.confirm("Excluir hábito?");
+    if (confirm) {
+      deleteHabit(habitId).then(() => {
+        setRefres(!refresh);
+      });
+    }
+  }
   console.log(habits);
 
   return (
@@ -26,7 +36,13 @@ export default function Habits() {
       <Main>
         <MyHabits>
           <p>Meus hábitos</p>
-          <Button onClick={() => setEnableTaskBox(true)}>+</Button>
+          <Button
+            width="40px"
+            height="35px"
+            onClick={() => setEnableTaskBox(true)}
+          >
+            +
+          </Button>
         </MyHabits>
         {enableTaskBox ? (
           <TaskBox
@@ -42,7 +58,14 @@ export default function Habits() {
             começar a trackear!
           </p>
         ) : (
-          habits.map((habit) => <Task key={habit.id} name={habit.name}></Task>)
+          habits.map((habit) => (
+            <Task
+              key={habit.id}
+              name={habit.name}
+              id={habit.id}
+              deleteHab={deleteHab}
+            ></Task>
+          ))
         )}
       </Main>
       <BottomMenu />
@@ -57,7 +80,7 @@ const MyHabits = styled.div`
   color: #126ba5;
   display: flex;
   align-items: center;
-  justify-content: space-around;
+  justify-content: space-between;
   width: 100vw;
   padding: 28px 17px;
 `;

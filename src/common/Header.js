@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import logo_small from "./images/logo_small.png";
 
-export default function Header({ image }) {
+export default function Header() {
   const auth = JSON.parse(localStorage.getItem("trackit"));
 
   return (
