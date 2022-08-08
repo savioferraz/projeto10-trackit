@@ -66,6 +66,7 @@ export default function Habits() {
               name={habit.name}
               id={habit.id}
               deleteHab={deleteHab}
+              days={habit.days}
             ></Task>
           ))
         )}

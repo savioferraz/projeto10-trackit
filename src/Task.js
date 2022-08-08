@@ -1,25 +1,25 @@
-import { useEffect, useState } from "react";
 import styled from "styled-components";
-import { deleteHabit } from "./Services";
 import Week from "./Week";
 
-export function Task({ name, id, deleteHab }) {
+export function Task({ name, id, deleteHab, days }) {
   const week = [
-    { id: "0", day: "D", selected: false },
-    { id: "1", day: "S", selected: false },
-    { id: "2", day: "T", selected: false },
-    { id: "3", day: "Q", selected: false },
-    { id: "4", day: "Q", selected: false },
-    { id: "5", day: "S", selected: false },
-    { id: "6", day: "S", selected: false },
+    { id: 0, day: "D", selected: false },
+    { id: 1, day: "S", selected: false },
+    { id: 2, day: "T", selected: false },
+    { id: 3, day: "Q", selected: false },
+    { id: 4, day: "Q", selected: false },
+    { id: 5, day: "S", selected: false },
+    { id: 6, day: "S", selected: false },
   ];
 
   const weekMap = week.map((day) => {
-    if (week.includes(day.id)) {
+    if (days.includes(day.id)) {
       return {
         ...day,
         selected: true,
       };
+    } else {
+      return day;
     }
   });
 
@@ -31,7 +31,7 @@ export function Task({ name, id, deleteHab }) {
           <ion-icon name="trash-outline"></ion-icon>
         </span>
       </div>
-      <Week week={week} />
+      <Week week={weekMap} />
     </Wrapper>
   );
 }

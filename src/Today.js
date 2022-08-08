@@ -1,5 +1,4 @@
-import React, { useContext, useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import React, { useContext, useEffect } from "react";
 import BottomMenu from "./common/BottomMenu";
 import Header from "./common/Header";
 import UserContext from "./common/UserContext";
@@ -8,7 +7,6 @@ import { Main } from "./styles/Body";
 import { TaskToday } from "./Task";
 
 export default function Today() {
-  const navigate = useNavigate();
   const { habits, setHabits } = useContext(UserContext);
 
   useEffect(() => {
@@ -22,6 +20,7 @@ export default function Today() {
     <>
       <Header />
       <Main>
+        <p>Hoje</p>
         {habits.map((habit) => (
           <TaskToday key={habit.id} name={habit.name} id={habit.id}></TaskToday>
         ))}

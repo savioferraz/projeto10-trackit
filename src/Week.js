@@ -1,6 +1,5 @@
-import React, { useContext, useState } from "react";
+import React from "react";
 import styled from "styled-components";
-import UserContext from "./common/UserContext";
 
 export default function Week({ week, setWeek = function () {} }) {
   function selecionar(dayId) {
@@ -13,7 +12,6 @@ export default function Week({ week, setWeek = function () {} }) {
       }
       return day;
     });
-
     setWeek(newWeek);
   }
 

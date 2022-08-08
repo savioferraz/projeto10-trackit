@@ -8,9 +8,7 @@ import Week from "./Week";
 
 export default function TaskBox({ refresh, setRefresh }) {
   const [name, setName] = useState("");
-  const [daysArr, setdaysArr] = useState([]);
   const { enableTaskBox, setEnableTaskBox } = useContext(UserContext);
-  const data = { name, daysArr };
   const [week, setWeek] = useState([
     { id: "0", day: "D", selected: false },
     { id: "1", day: "S", selected: false },
@@ -24,7 +22,6 @@ export default function TaskBox({ refresh, setRefresh }) {
   function handleForm(e) {
     e.preventDefault();
     const days = week.filter((day) => day.selected).map((day) => day.id);
-
     const data = { name, days };
     console.log(data);
     postHabit(data).then(setRefresh(!refresh));
