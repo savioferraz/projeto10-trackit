@@ -6,10 +6,11 @@ import History from "./History";
 import LoginScreen from "./LoginScreen";
 import GlobalStyle from "./styles/GlobalStyles";
 import Today from "./Today";
+import UserContext from "./common/UserContext";
 
 export default function App() {
   return (
-    <>
+    <UserContext.Provider>
       <GlobalStyle />
       <BrowserRouter>
         <Routes>
@@ -20,6 +21,6 @@ export default function App() {
           <Route path="/historico" element={<History />} />
         </Routes>
       </BrowserRouter>
-    </>
+    </UserContext.Provider>
   );
 }

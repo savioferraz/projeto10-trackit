@@ -4,9 +4,10 @@ import Button from "./common/Button";
 import Input from "./common/Input";
 import { postHabit } from "./Services";
 
-export default function TaskBox() {
+export default function TaskBox(props) {
   const [name, setName] = useState("");
   const [days, setDays] = useState([]);
+  const { enableTaskBox, setEnableTaskBox } = props;
 
   const data = { name, days };
 
@@ -41,7 +42,7 @@ export default function TaskBox() {
           <button onClick={() => setDays((days) => [...days, `6`])}>S</button>
         </ul>
         <div>
-          <h1>Cancelar</h1>
+          <Cancel onClick={() => setEnableTaskBox(false)}>Cancelar</Cancel>
           <Button type="submit"></Button>
         </div>
       </form>
@@ -77,7 +78,8 @@ const Wrapper = styled.div`
     display: flex;
     align-items: center;
   }
-  h1 {
-    color: #52b6ff;
-  }
+`;
+
+const Cancel = styled.div`
+  color: #52b6ff;
 `;

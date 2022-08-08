@@ -11,6 +11,7 @@ export default function BottomMenu() {
       <Link to="/hoje">
         <h1>Hoje</h1>
       </Link>
+
       <Link to="/historico">
         <h1>Histórico</h1>
       </Link>

@@ -4,24 +4,19 @@ import BottomMenu from "./common/BottomMenu";
 import Header from "./common/Header";
 import { getHabits } from "./Services";
 import { Main } from "./styles/Body";
+import Task from "./Task";
 
 export default function Today() {
   const navigate = useNavigate();
-  const [habits, setHabits] = useState([]);
-
-  useEffect(() => {
-    getHabits().then((res) => {
-      setHabits(res.data);
-    });
-    getHabits().catch((err) => {
-      navigate("/");
-    });
-  });
 
   return (
     <>
       <Header />
-      <Main>{habits}</Main>
+      <Main>
+        {/* {habits.map((habit) => (
+          <Task key={habit.id} name={habit.name}></Task>
+        ))} */}
+      </Main>
       <BottomMenu />
     </>
   );
