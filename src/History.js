@@ -7,7 +7,10 @@ export default function History() {
   return (
     <>
       <Header />
-      <Main></Main>
+      <Main>
+        <p>Histórico</p>
+        <h1>Em breve você poderá ver o histórico dos seus hábitos aqui!</h1>
+      </Main>
       <BottomMenu />
     </>
   );

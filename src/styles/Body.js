@@ -18,6 +18,11 @@ export const Main = styled.div`
   width: 100vw;
   height: 100vh;
   padding: 28px 17px;
+  p {
+    font-size: 23px;
+    line-height: 29px;
+    color: #126ba5;
+  }
   h1 {
     font-size: 18px;
     line-height: 22px;
