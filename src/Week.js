@@ -2,53 +2,38 @@ import React, { useContext, useState } from "react";
 import styled from "styled-components";
 import UserContext from "./common/UserContext";
 
-export default function Week({ day }) {
-  const week = ["D", "S", "T", "Q", "Q", "S", "S"];
-  const { selected, setSelected } = useContext(UserContext);
-  const [active, setActive] = useState(false);
-
-  function SelectDay({ day, index, daysArr, setDaysArr, active }) {
-    const [selected, setSelected] = useState(false);
-
-    function popDaysArr(value) {
-      if (value) {
-        setSelected(!selected);
-        for (let i = 0; i < daysArr.length; i++) {
-          if (daysArr[i] === index) {
-            daysArr.splice(i, 1);
-            console.log(daysArr);
-          }
-          if (!value) {
-            setSelected(!selected);
-            setDaysArr([...daysArr, index]);
-            console.log(daysArr);
-          }
-        }
+export default function Week({ week, setWeek = function () {} }) {
+  function selecionar(dayId) {
+    const newWeek = week.map((day) => {
+      if (dayId === day.id) {
+        return {
+          ...day,
+          selected: !day.selected,
+        };
       }
-    }
+      return day;
+    });
 
+    setWeek(newWeek);
+  }
+
+  function SelectDay({ value }) {
     return (
       <>
-        {selected ? (
-          <div
-            className="selected"
-            onClick={() => (active ? popDaysArr(selected) : <></>)}
-          >
-            {day}
-          </div>
-        ) : (
-          <div onClick={() => (active ? popDaysArr(selected) : <></>)}>
-            {day}
-          </div>
-        )}
+        <div
+          className={`${value.selected ? "selected" : ""}`}
+          onClick={() => selecionar(value.id)}
+        >
+          {value.day}
+        </div>
       </>
     );
   }
 
   return (
     <Wrapper>
-      {week.map((day, i) => (
-        <SelectDay key={i} index={i} day={day} />
+      {week.map((value, i) => (
+        <SelectDay key={i} index={i} value={value} />
       ))}
     </Wrapper>
   );

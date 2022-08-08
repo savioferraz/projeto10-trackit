@@ -6,17 +6,28 @@ import UserContext from "./common/UserContext";
 import { postHabit } from "./Services";
 import Week from "./Week";
 
-export default function TaskBox() {
+export default function TaskBox({ refresh, setRefresh }) {
   const [name, setName] = useState("");
   const [daysArr, setdaysArr] = useState([]);
-  const { enableTaskBox, setEnableTaskBox, selected, setSelected } =
-    useContext(UserContext);
+  const { enableTaskBox, setEnableTaskBox } = useContext(UserContext);
   const data = { name, daysArr };
+  const [week, setWeek] = useState([
+    { id: "0", day: "D", selected: false },
+    { id: "1", day: "S", selected: false },
+    { id: "2", day: "T", selected: false },
+    { id: "3", day: "Q", selected: false },
+    { id: "4", day: "Q", selected: false },
+    { id: "5", day: "S", selected: false },
+    { id: "6", day: "S", selected: false },
+  ]);
 
   function handleForm(e) {
     e.preventDefault();
+    const days = week.filter((day) => day.selected).map((day) => day.id);
+
+    const data = { name, days };
     console.log(data);
-    postHabit(data);
+    postHabit(data).then(setRefresh(!refresh));
   }
 
   return (
@@ -29,7 +40,7 @@ export default function TaskBox() {
           value={name}
           onChange={(e) => setName(e.target.value)}
         ></Input>
-        <Week />
+        <Week week={week} setWeek={setWeek} />
         <div>
           <Cancel onClick={() => setEnableTaskBox(!enableTaskBox)}>
             Cancelar

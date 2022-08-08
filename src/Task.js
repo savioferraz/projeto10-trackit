@@ -4,6 +4,25 @@ import { deleteHabit } from "./Services";
 import Week from "./Week";
 
 export function Task({ name, id, deleteHab }) {
+  const week = [
+    { id: "0", day: "D", selected: false },
+    { id: "1", day: "S", selected: false },
+    { id: "2", day: "T", selected: false },
+    { id: "3", day: "Q", selected: false },
+    { id: "4", day: "Q", selected: false },
+    { id: "5", day: "S", selected: false },
+    { id: "6", day: "S", selected: false },
+  ];
+
+  const weekMap = week.map((day) => {
+    if (week.includes(day.id)) {
+      return {
+        ...day,
+        selected: true,
+      };
+    }
+  });
+
   return (
     <Wrapper>
       <div>
@@ -12,7 +31,7 @@ export function Task({ name, id, deleteHab }) {
           <ion-icon name="trash-outline"></ion-icon>
         </span>
       </div>
-      <Week />
+      <Week week={week} />
     </Wrapper>
   );
 }
@@ -23,6 +42,8 @@ export function TaskToday({ name }) {
       <div>
         <h1>{name}</h1>
       </div>
+      <h2>Sequência atual:</h2>
+      <h2>Seu recorde: </h2>
     </Wrapper>
   );
 }
@@ -44,6 +65,10 @@ const Wrapper = styled.div`
   h1 {
     font-size: 20px;
     line-height: 25px;
+    color: #666666;
+  }
+  h2 {
+    font-size: 13px;
     color: #666666;
   }
 `;

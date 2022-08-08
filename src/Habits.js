@@ -12,7 +12,7 @@ import TaskBox from "./TaskBox";
 export default function Habits() {
   const { habits, setHabits, enableTaskBox, setEnableTaskBox } =
     useContext(UserContext);
-  const [refresh, setRefres] = useState(false);
+  const [refresh, setRefresh] = useState(false);
 
   useEffect(() => {
     getHabits().then((res) => {
@@ -24,7 +24,7 @@ export default function Habits() {
     const confirm = window.confirm("Excluir hábito?");
     if (confirm) {
       deleteHabit(habitId).then(() => {
-        setRefres(!refresh);
+        setRefresh(!refresh);
       });
     }
   }
@@ -48,6 +48,8 @@ export default function Habits() {
           <TaskBox
             enableTaskBox={enableTaskBox}
             setEnableTaskBox={setEnableTaskBox}
+            refresh={refresh}
+            setRefresh={setRefresh}
           />
         ) : (
           <></>
