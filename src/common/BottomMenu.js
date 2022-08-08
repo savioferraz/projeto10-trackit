@@ -13,21 +13,23 @@ export default function BottomMenu() {
         <h1>Hábitos</h1>
       </Link>
       <Link to="/hoje">
-        <CircularProgressbar
-          value={percentage}
-          text="Hoje"
-          background
-          backgroundPadding={3}
-          styles={buildStyles({
-            rotation: 0.25,
-            strokeLinecap: "butt",
-            textSize: "18px",
-            pathTransitionDuration: 0.5,
-            pathColor: "#ffffff",
-            textColor: "#ffffff",
-            backgroundColor: "#52B6FF",
-          })}
-        />
+        <div>
+          <CircularProgressbar
+            value={percentage}
+            text="Hoje"
+            background
+            backgroundPadding={3}
+            styles={buildStyles({
+              rotation: 0.25,
+              strokeLinecap: "butt",
+              textSize: "18px",
+              pathTransitionDuration: 0.5,
+              pathColor: "#ffffff",
+              textColor: "#ffffff",
+              backgroundColor: "#52B6FF",
+            })}
+          />
+        </div>
       </Link>
 
       <Link to="/historico">
@@ -48,4 +50,8 @@ const Bottom = styled.div`
   margin-top: 70px;
   background: #ffffff;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
+  div {
+    width: 91px;
+    height: 91px;
+  }
 `;

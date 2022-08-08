@@ -3,7 +3,7 @@ import styled from "styled-components";
 import { deleteHabit } from "./Services";
 import Week from "./Week";
 
-export default function Task({ name, id, deleteHab }) {
+export function Task({ name, id, deleteHab }) {
   return (
     <Wrapper>
       <div>
@@ -13,6 +13,16 @@ export default function Task({ name, id, deleteHab }) {
         </span>
       </div>
       <Week />
+    </Wrapper>
+  );
+}
+
+export function TaskToday({ name }) {
+  return (
+    <Wrapper>
+      <div>
+        <h1>{name}</h1>
+      </div>
     </Wrapper>
   );
 }

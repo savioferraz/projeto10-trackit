@@ -6,12 +6,12 @@ import Header from "./common/Header";
 import UserContext from "./common/UserContext";
 import { deleteHabit, getHabits } from "./Services";
 import { Main } from "./styles/Body";
-import Task from "./Task";
+import { Task } from "./Task";
 import TaskBox from "./TaskBox";
 
 export default function Habits() {
-  const { enableTaskBox, setEnableTaskBox } = useContext(UserContext);
-  const [habits, setHabits] = useState([]);
+  const { habits, setHabits, enableTaskBox, setEnableTaskBox } =
+    useContext(UserContext);
   const [refresh, setRefres] = useState(false);
 
   useEffect(() => {

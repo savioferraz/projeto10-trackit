@@ -9,8 +9,8 @@ import Week from "./Week";
 export default function TaskBox() {
   const [name, setName] = useState("");
   const [daysArr, setdaysArr] = useState([]);
-  const { enableTaskBox, setEnableTaskBox } = useContext(UserContext);
-  const { selected, setSelected } = useContext(UserContext);
+  const { enableTaskBox, setEnableTaskBox, selected, setSelected } =
+    useContext(UserContext);
   const data = { name, daysArr };
 
   function handleForm(e) {

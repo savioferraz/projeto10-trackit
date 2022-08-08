@@ -11,10 +11,18 @@ import UserContext from "./common/UserContext";
 export default function App() {
   const [enableTaskBox, setEnableTaskBox] = useState(false);
   const [selected, setSelected] = useState(false);
+  const [habits, setHabits] = useState([]);
 
   return (
     <UserContext.Provider
-      value={{ enableTaskBox, setEnableTaskBox, selected, setSelected }}
+      value={{
+        enableTaskBox,
+        setEnableTaskBox,
+        selected,
+        setSelected,
+        habits,
+        setHabits,
+      }}
     >
       <GlobalStyle />
       <BrowserRouter>
