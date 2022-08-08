@@ -10,13 +10,13 @@ export default function TaskBox({ refresh, setRefresh }) {
   const [name, setName] = useState("");
   const { enableTaskBox, setEnableTaskBox } = useContext(UserContext);
   const [week, setWeek] = useState([
-    { id: "0", day: "D", selected: false },
-    { id: "1", day: "S", selected: false },
-    { id: "2", day: "T", selected: false },
-    { id: "3", day: "Q", selected: false },
-    { id: "4", day: "Q", selected: false },
-    { id: "5", day: "S", selected: false },
-    { id: "6", day: "S", selected: false },
+    { id: 0, day: "D", selected: false },
+    { id: 1, day: "S", selected: false },
+    { id: 2, day: "T", selected: false },
+    { id: 3, day: "Q", selected: false },
+    { id: 4, day: "Q", selected: false },
+    { id: 5, day: "S", selected: false },
+    { id: 6, day: "S", selected: false },
   ]);
 
   function handleForm(e) {

@@ -28,7 +28,6 @@ export default function Habits() {
       });
     }
   }
-  console.log(habits);
 
   return (
     <>
